@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card.js'
+import Timer from './Timer'
 import styles from './Game.module.css'
 
 const Game = () => {
@@ -13,8 +14,11 @@ const Game = () => {
     return cardList
   }
   return (
-    <div className={styles.container}>
-      {cardContainer(4)}
+    <div >
+      <div className={styles.container}>
+        {cardContainer(4)}
+      </div>
+      <Timer />
     </div>
   )
 }
