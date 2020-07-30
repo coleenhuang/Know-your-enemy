@@ -1,23 +1,16 @@
 import React from 'react';
+import Instructions from './Instructions';
+import Play from './Play';
 
 const Start = () => {
   return (
     <div>
-      <div>
-        <h1>Know Your Enemy</h1>
-      </div>
-      <div>
-        {/*Illustration of lab notebook*/}
-        <p>Instructions</p>
-      </div>
+      <Instructions />
       <div>
         {/*Illustration of microscope*/}
         <p>Get to know your enemies</p>
       </div>
-      <div>
-        {/*Illustration of petri dish*/}
-        <p>Play</p>
-      </div>
+      <Play />
     </div>
   )
 }
