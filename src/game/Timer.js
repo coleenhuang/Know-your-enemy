@@ -1,29 +1,53 @@
 import React, { useState, useEffect } from 'react';
 
-class Timer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      min: 0,
-      sec: 0,
-      active: false
+
+//convert this to using hooks like the tutorial
+//Currently not working
+const Timer = () => {
+
+    const [seconds, setSeconds] = useState(0);
+    const [isActive, setIsActive] = useState(false);
+
+    function toggle() {
+      setIsActive(!isActive)
     }
-  }
 
-  startTimer = () => {
-    this.setState({active: !this.state.active})
-    console.log(this.state.active)
-  }
+    function reset() {
+      setSeconds(0);
+      setIsActive(false);
+    }
 
-  render () {
+    useEffect(() => {
+      let interval = null;
+      if(isActive) {
+        //Runs function setSeconds every second
+        interval = setInterval(() => {
+          setSeconds(seconds => seconds+1)
+        }, 1000);
+      }
+      else if (!isActive && seconds !== 0) {
+        //stops setInterval from running
+        clearInterval(interval);
+      }
+      //returning a new function
+      //equivalent to componentWillUnmount
+      return () => clearInterval(interval);
+    }, [isActive, seconds])
+
+
     return (
       <div>
-        <p>00:00</p>
-        <button type='button' onClick={this.startTimer}>Start</button>
+        <p> {seconds}s</p>
+        <button type='button' onClick={toggle}>
+          {isActive ? 'Pause' : 'Start'}
+        </button>
+        <button type='button' onClick={reset}>
+        Reset
+        </ button>
+
       </div>
 
-    )
-  }
+    );
 }
 
 export default Timer;
