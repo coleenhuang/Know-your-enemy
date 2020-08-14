@@ -9,15 +9,14 @@ import './App.css'
 function App() {
   return (
     <div className="App main-container">
-      <BrowserRouter>
+      
         <Header />
         <Switch>
           <Route path='/' exact component={Start} />
           <Route path='/game' component={Game} />
           <Route component={NotFound} />
         </Switch>
-        
-      </ BrowserRouter>
+      
     </div>
   );
 }

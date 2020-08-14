@@ -14,9 +14,26 @@ describe('the router', () => {
     wrapped.unmount();
   })
 
+  it('renders the header and notFound page when the path is invalid', () =>{
+    wrapped = mount(
+     <MemoryRouter initialEntries={['/random']} 
+      initialIndex={0}>
+       <App />
+     </MemoryRouter>
+   );
+ 
+   expect(wrapped.find(Header).length).toEqual(1);
+   expect(wrapped.find(Start).length).toEqual(0);
+   //FIXME: Should show NotFound component, yet doesn't show it
+    //Weirdly the route works fine when I run it in the browser
+   expect(wrapped.find(NotFound).length).toEqual(1);
+   
+ })
+
   it('renders the header and start page when the path is /', () =>{
      wrapped = mount(
-      <MemoryRouter initialEntries={['/']}>
+      <MemoryRouter initialEntries={['/']}
+      initialIndex={0}>
         <App />
       </MemoryRouter>
     );
@@ -27,7 +44,8 @@ describe('the router', () => {
   
   it('renders the header and game page when the path is /game', () =>{
     wrapped = mount(
-      <MemoryRouter initialEntries={['/game']}>
+      <MemoryRouter initialEntries={['/game']}
+      initialIndex={0}>
         <App />
       </MemoryRouter>
     );
@@ -39,19 +57,7 @@ describe('the router', () => {
 
   })
 
-  it('renders the header and notFound page when the path is invalid', () =>{
-    wrapped = mount(
-     <MemoryRouter initialEntries={['/random']}>
-       <App />
-     </MemoryRouter>
-   );
- 
-   expect(wrapped.find(Header).length).toEqual(1);
-   //FIXME: Should show NotFound component, yet doesn't show it
-    //Weirdly the route works fine when I run it in the browser
-   expect(wrapped.find(NotFound).length).toEqual(1);
-   expect(wrapped.find(Start).length).toEqual(0);
- })
+
 })
 
 
