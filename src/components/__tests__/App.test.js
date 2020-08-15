@@ -4,8 +4,8 @@ import { MemoryRouter } from 'react-router';
 import { mount } from 'enzyme';
 import App from '../App';
 import Header from '../Header';
-import Start from '../start/Start'
-import Game from '../game/Game';
+import StartPage from '../start/StartPage'
+import GamePage from '../game/GamePage';
 import NotFound from '../NotFound';
 
 describe('the router', () => {
@@ -23,9 +23,7 @@ describe('the router', () => {
    );
  
    expect(wrapped.find(Header).length).toEqual(1);
-   expect(wrapped.find(Start).length).toEqual(0);
-   //FIXME: Should show NotFound component, yet doesn't show it
-    //Weirdly the route works fine when I run it in the browser
+   expect(wrapped.find(StartPage).length).toEqual(0);
    expect(wrapped.find(NotFound).length).toEqual(1);
    
  })
@@ -39,7 +37,7 @@ describe('the router', () => {
     );
   
     expect(wrapped.find(Header).length).toEqual(1);
-    expect(wrapped.find(Start).length).toEqual(1);
+    expect(wrapped.find(StartPage).length).toEqual(1);
   })
   
   it('renders the header and game page when the path is /game', () =>{
@@ -51,9 +49,7 @@ describe('the router', () => {
     );
   
     expect(wrapped.find(Header).length).toEqual(1);
-    //FIXME: Should show game component, yet in tests shows Start component instead
-    //Weirdly the route works fine when I run it in the browser
-    expect(wrapped.find(Game).length).toEqual(1);
+    expect(wrapped.find(GamePage).length).toEqual(1);
 
   })
 

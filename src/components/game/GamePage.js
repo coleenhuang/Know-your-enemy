@@ -3,7 +3,7 @@ import Card from './Card.js'
 import Timer from './Timer'
 import styles from './Game.module.css'
 
-const Game = () => {
+const GamePage = () => {
   function cardContainer(num){
     //making a loop and putting return statements in it doesn't work
     //Need to put the components into an array first before rendering
@@ -24,4 +24,4 @@ const Game = () => {
 }
 
 
-export default Game;
+export default GamePage;

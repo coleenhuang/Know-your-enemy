@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Header from './Header'
-import Start from './start/Start'
-import Game from './game/Game'
+import StartPage from './start/StartPage'
+import GamePage from './game/GamePage'
 import NotFound from './NotFound';
 import './App.css'
 
@@ -12,8 +12,8 @@ function App() {
       
         <Header />
         <Switch>
-          <Route path='/' exact component={Start} />
-          <Route path='/game' component={Game} />
+          <Route path='/' exact component={StartPage} />
+          <Route path='/game' component={GamePage} />
           <Route component={NotFound} />
         </Switch>
       

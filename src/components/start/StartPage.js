@@ -2,7 +2,7 @@ import React from 'react';
 import Instructions from './Instructions';
 import Play from './Play';
 
-const Start = () => {
+const StartPage = () => {
   return (
     <div>
       <Instructions />
@@ -16,4 +16,4 @@ const Start = () => {
 }
 
 
-export default Start;
+export default StartPage;
