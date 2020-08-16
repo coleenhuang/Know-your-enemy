@@ -1,6 +1,6 @@
 import React from 'react';
 import Instructions from './Instructions';
-import Play from './Play';
+import PlayButton from './PlayButton';
 
 const StartPage = () => {
   return (
@@ -10,7 +10,7 @@ const StartPage = () => {
         {/*Illustration of microscope*/}
         <p>Get to know your enemies</p>
       </div>
-      <Play />
+      <PlayButton />
     </div>
   )
 }
