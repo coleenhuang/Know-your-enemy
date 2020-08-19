@@ -1,4 +1,4 @@
-import {SELECT_FIRST_CARD, SELECT_SECOND_CARD } from './types';
+import {SELECT_FIRST_CARD, SELECT_SECOND_CARD, RESET_SELECTED_CARDS, MATCHED_CARDS } from './types';
 
 export function selectFirstCard(id) {
     return {
@@ -13,3 +13,17 @@ export function selectSecondCard(id) {
         payload: id
     }
 }
+
+export function resetSelectedCards() {
+    return {
+        type: RESET_SELECTED_CARDS
+    }
+}
+
+export function matchedCards(id) {
+    return {
+        type: MATCHED_CARDS,
+        payload: id
+    }
+}
+

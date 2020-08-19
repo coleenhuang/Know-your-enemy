@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import firstCard from './firstcard';
-import secondCard from './secondcard';
+import selectedCards from './selectedCards';
 
 export default combineReducers({
-    firstCard: firstCard,
-    secondCard, secondCard
+    selected: selectedCards
 })
