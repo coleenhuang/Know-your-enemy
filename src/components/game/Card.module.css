@@ -4,3 +4,11 @@
   border: darkgrey solid 1px;
   margin: 1rem;
 }
+
+.active {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
