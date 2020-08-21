@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './Card.module.css'
 
-const Card = () => {
+const Card = (props) => {
   return (
-    <div>
-      <div className={styles.card}>
-        Card
+    <div className={styles.card}>
+      <div>
+        Card Front
+      </div>
+      <div>
+        {props.back}
       </div>
     </div>
   )

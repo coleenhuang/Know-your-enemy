@@ -33,5 +33,5 @@ it('shuffles the cardList array', () => {
             )
         }
     expect(CardsContainer).not.toEqual(unshuffled);
-    
 })
+
