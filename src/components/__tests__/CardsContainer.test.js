@@ -23,3 +23,5 @@ afterEach(() => {
 it('has one card per element', () => {
     expect(wrapped.find(Card)).toHaveLength(6)
 })
+
+//TODO: Add test to see that the cards are shuffled

@@ -4,16 +4,21 @@ import { connect } from 'react-redux';
 
 
 const CardsContainer = (props) => {
-    //FIXME:
-    //shuffle the array
-    //generate the cards 
-    
-
-    
+    const shuffleArray = (array) => {
+        //shuffles the array
+        //Fischer-Yates shuffle
+        for( let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * i);
+            const temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
 
     return (
         <div>
-            {props.cardList.map(card => {
+            {shuffleArray(props.cardList).map(card => {
                 return (
                     <Card key={card.id} back={card.back}/>
                 )
@@ -23,7 +28,7 @@ const CardsContainer = (props) => {
 }
 
 const mapStateToprops = (state) => {
-    return {cardList: state.cardList}
+    return {cardList: state.cardList};
 }
 
 export default connect(mapStateToprops, null)(CardsContainer);
