@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card'
 import { connect } from 'react-redux';
-
+import styles from './CardsContainer.module.css'
 
 const CardsContainer = (props) => {
     const shuffleArray = (array) => {
@@ -17,7 +17,7 @@ const CardsContainer = (props) => {
     }
 
     return (
-        <div>
+        <div className={styles.gridContainer}>
             {shuffleArray(props.cardList).map(card => {
                 return (
                     <Card key={card.id} back={card.back}/>
