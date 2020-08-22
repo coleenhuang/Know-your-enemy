@@ -11,6 +11,6 @@ beforeEach(() => {
     );
 })
 
-it('was passed the prop back', () => {
-    expect(wrapped.props('back')).toBeTruthy();
+it('was passed the prop info', () => {
+    expect(wrapped.props('info')).toBeTruthy();
 })

@@ -17,13 +17,16 @@ const CardsContainer = (props) => {
     }
 
     return (
-        <div className={styles.gridContainer}>
-            {shuffleArray(props.cardList).map(card => {
-                return (
-                    <Card key={card.id} back={card.back}/>
-                )
-            })}
+        <div>
+            <div className={styles.gridContainer}>
+                {shuffleArray(props.cardList).map((card, index) => {
+                    return (
+                        <Card key={card.index} info={card}/>
+                    )
+                })}
+            </div>
         </div>
+            
     )
 }
 
@@ -31,4 +34,4 @@ const mapStateToprops = (state) => {
     return {cardList: state.cardList};
 }
 
-export default connect(mapStateToprops, null)(CardsContainer);
+export default connect(mapStateToprops)(CardsContainer);

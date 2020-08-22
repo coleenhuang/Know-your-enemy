@@ -1,23 +1,61 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Card.module.css';
+import { connect } from 'react-redux';
+import * as actions from '../../actions'
 
-
-const Card = (props) => {
-  const [flip, setFlip] = useState(false)
-
-  const flipCard = () => {
-    setFlip(!flip)
+class Card extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      flip: false
+    }
   }
 
-  return (
-    <div className={styles.card} onClick={flipCard}>
-      <div className={`${flip?styles.hidden:styles.active} ${styles.front}`}>
+  flipCard = () => {
+    this.setState({flip: !this.state.flip})
+  }
+
+  selectCard = () => {
+    const id = this.props.info.id;
+    const type = this.props.info.type;
+    if(this.props.first&&this.props.second) {
+      this.props.resetSelectedCards()
+      console.log('reset selected cards');
+    }
+    else if(!this.props.second && !this.props.first) {
+      this.props.selectFirstCard(id, type);
+      console.log('selected first card', id);
+    }
+    else {
+      this.props.selectSecondCard(id, type);
+      console.log('selected second card', id);
+      
+    }
+    
+  }
+
+  clickWrapper = () => {
+    this.flipCard();
+    this.selectCard();
+  }
+
+  render() {
+    return (
+    <div className={styles.card} onClick={this.clickWrapper}>
+      <div className={`${this.state.flip?styles.hidden:styles.active} ${styles.front}`}>
       </div>
-      <div className={flip?styles.active:styles.hidden}>
-        {props.back}
+      <div className={this.state.flip?styles.active:styles.hidden}>
+        {this.props.info.back}
       </div>
     </div>
-  )
+  )}
 }
 
-export default Card;
+const mapStateToProps = (state) => {
+  return {
+    first: state.selected.first,
+    second: state.selected.second
+  }
+}
+
+export default connect(mapStateToProps, actions)(Card);
