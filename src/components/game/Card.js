@@ -7,7 +7,8 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      flip: false
+      flip: false,
+      matched: false
     }
   }
 
@@ -16,13 +17,12 @@ class Card extends React.Component {
   }
 
   selectCard = () => {
+    //selects the card
+    //passes the selected card to the action creator
+    //if two cards are selected reset the cards
     const id = this.props.info.id;
     const type = this.props.info.type;
-    if(this.props.first&&this.props.second) {
-      this.props.resetSelectedCards()
-      console.log('reset selected cards');
-    }
-    else if(!this.props.second && !this.props.first) {
+    if(!this.props.second && !this.props.first) {
       this.props.selectFirstCard(id, type);
       console.log('selected first card', id);
     }
@@ -30,9 +30,10 @@ class Card extends React.Component {
       this.props.selectSecondCard(id, type);
       console.log('selected second card', id);
       
-    }
-    
+    }  
   }
+
+
 
   clickWrapper = () => {
     this.flipCard();
