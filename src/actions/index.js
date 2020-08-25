@@ -23,7 +23,7 @@ export function resetSelectedCards() {
 export function matchedCards(firstId, secondId) {
     return {
         type: MATCHED_CARDS,
-        payload: firstId, secondId
+        payload: [firstId, secondId]
     }
 }
 
@@ -33,3 +33,5 @@ export function resetMatchedCards() {
         type: RESET_MATCHED_CARDS
     }
 }
+
+

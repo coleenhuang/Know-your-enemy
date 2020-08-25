@@ -8,7 +8,8 @@ class CardsContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            shuffled: []
+            shuffled: [],
+            flipped: []
         }
     }
     componentDidMount() {
@@ -37,8 +38,8 @@ class CardsContainer extends React.Component {
 
     matchCards(firstCard, secondCard) {
         if (firstCard.type === secondCard.type) {
-            this.props.matchedCards();
-            console.log('cards matched')
+            this.props.matchedCards(firstCard.id, secondCard.id);
+            console.log('cards matched', firstCard.id, secondCard.id)
         }
         else {
             console.log('cards don\'t match')
@@ -46,13 +47,30 @@ class CardsContainer extends React.Component {
         this.props.resetSelectedCards();
     }
 
+    flipCard = (id) => {
+        if(!this.state.flipped.includes(id)){
+            this.setState(state => {
+                const flipped = state.flipped.concat(id)
+                return {flipped }
+            })
+        }
+        else {
+            this.setState( state => {
+                const flipped = state.flipped.filter(i => i!==id);
+                return {flipped}
+            })
+        }
+    }
+
     render() {
         return (
         <div>
             <div className={styles.gridContainer}>
                 {this.state.shuffled.map((card, index) => {
+                    let flip;
+                    flip = this.state.flipped.includes(card.id)?true:false
                     return (
-                        <Card key={card.index} info={card} />
+                        <Card key={card.index} info={card} flip={flip} flipCard={this.flipCard}/>
                     )
                 })}
             </div>
