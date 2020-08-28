@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions'
 
 class Card extends React.Component {
-
   
   selectCard = () => {
     //selects the card
@@ -29,11 +28,9 @@ class Card extends React.Component {
     this.props.flipCard(this.props.info.id);
   }
 
-  //TODO: Disable the onClick event handler when the card is matched
-
   render() {
     return (
-    <div className={styles.card} onClick={this.clickWrapper}>
+    <div className={`${styles.card} ${this.props.match?styles.disable:null}`} onClick={this.clickWrapper}>
       <div className={`${this.props.flip?styles.hidden:styles.active} ${styles.front}`}>
       </div>
       <div className={this.props.flip?styles.active:styles.hidden}>

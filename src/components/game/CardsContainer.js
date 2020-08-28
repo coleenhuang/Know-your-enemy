@@ -67,10 +67,13 @@ class CardsContainer extends React.Component {
         <div>
             <div className={styles.gridContainer}>
                 {this.state.shuffled.map((card, index) => {
-                    let flip;
-                    flip = this.state.flipped.includes(card.id)?true:false
+                    const flip = this.state.flipped.includes(card.id)?true:false
+                    const match = this.props.matched.includes(card.id)?true:false
                     return (
-                        <Card key={card.index} info={card} flip={flip} flipCard={this.flipCard}/>
+                        <Card key={card.index} info={card}
+                        match={match} 
+                        flip={flip} 
+                        flipCard={this.flipCard}/>
                     )
                 })}
             </div>
@@ -83,7 +86,8 @@ const mapStateToprops = (state) => {
     return {
         cardList: state.cardList,
         first: state.selected.first,
-        second: state.selected.second
+        second: state.selected.second,
+        matched: state.matched
     };
 }
 
