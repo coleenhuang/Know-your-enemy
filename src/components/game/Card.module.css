@@ -17,6 +17,7 @@
 .disable {
   pointer-events: none;
   opacity: 0.7;
+  background-color: lightgrey;
 }
 
 .front {
