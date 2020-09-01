@@ -30,10 +30,10 @@ class Card extends React.Component {
 
   render() {
     return (
-    <div className={`${styles.card} ${this.props.match?styles.disable:null}`} onClick={this.clickWrapper}>
-      <div className={`${this.props.flip?styles.hidden:styles.active} ${styles.front}`}>
+    <div className={`${this.props.flip?null:styles.active} ${styles.card} ${this.props.match?styles.disable:null}`} onClick={this.clickWrapper}>
+      <div className={`${styles.front}`}>
       </div>
-      <div className={`${this.props.flip?styles.active:styles.hidden}
+      <div className={`
        ${styles.back}`}>
         {this.props.info.back}
       </div>

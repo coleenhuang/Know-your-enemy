@@ -44,6 +44,7 @@ class CardsContainer extends React.Component {
         }
         else {
             console.log('cards don\'t match');
+            //delays the cards flipping back to the default
             setTimeout(() => {this.setState( state => {
                 const flipped = state.flipped.filter(i => i!==firstCard.id && i!==secondCard.id);
                 return { flipped }
