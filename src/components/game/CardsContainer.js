@@ -39,14 +39,16 @@ class CardsContainer extends React.Component {
     matchCards(firstCard, secondCard) {
         if (firstCard.type === secondCard.type) {
             this.props.matchedCards(firstCard.id, secondCard.id);
-            console.log('cards matched', firstCard.id, secondCard.id)
+            console.log('cards matched', firstCard.id, secondCard.id);
+            
         }
         else {
             console.log('cards don\'t match');
-            this.setState( state => {
+            setTimeout(() => {this.setState( state => {
                 const flipped = state.flipped.filter(i => i!==firstCard.id && i!==secondCard.id);
                 return { flipped }
-            }) 
+            })
+            }, 1500)
         }
         this.props.resetSelectedCards();
         console.log(this.state)
@@ -57,7 +59,7 @@ class CardsContainer extends React.Component {
         if(!this.state.flipped.includes(id)){
             this.setState(state => {
                 const flipped = state.flipped.concat(id)
-                return {flipped }
+                return {flipped}
             })
         }
         else {

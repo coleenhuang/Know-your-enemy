@@ -33,7 +33,8 @@ class Card extends React.Component {
     <div className={`${styles.card} ${this.props.match?styles.disable:null}`} onClick={this.clickWrapper}>
       <div className={`${this.props.flip?styles.hidden:styles.active} ${styles.front}`}>
       </div>
-      <div className={this.props.flip?styles.active:styles.hidden}>
+      <div className={`${this.props.flip?styles.active:styles.hidden}
+       ${styles.back}`}>
         {this.props.info.back}
       </div>
     </div>
