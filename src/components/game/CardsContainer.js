@@ -42,10 +42,16 @@ class CardsContainer extends React.Component {
             console.log('cards matched', firstCard.id, secondCard.id)
         }
         else {
-            console.log('cards don\'t match')
+            console.log('cards don\'t match');
+            this.setState( state => {
+                const flipped = state.flipped.filter(i => i!==firstCard.id && i!==secondCard.id);
+                return { flipped }
+            }) 
         }
         this.props.resetSelectedCards();
+        console.log(this.state)
     }
+
 
     flipCard = (id) => {
         if(!this.state.flipped.includes(id)){

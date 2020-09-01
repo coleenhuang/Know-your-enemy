@@ -1,7 +1,5 @@
 import React from 'react';
 import CardsContainer from './CardsContainer';
-import Timer from './Timer'
-
 
 
 const GamePage = () => {
@@ -9,7 +7,6 @@ const GamePage = () => {
   return (
     <div >
       <CardsContainer />
-      <Timer />
     </div>
   )
 }

@@ -23,8 +23,9 @@
 .front {
   width: 100%;
   height: 100%;
-  background-image: url('../../images/biohazard.jpg');
+  background-image: url('../../images/Biohazard.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-color: #FFD400;
 }
