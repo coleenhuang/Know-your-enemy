@@ -7,6 +7,7 @@ import App from '../App';
 import Header from '../Header';
 import StartPage from '../start/StartPage'
 import GamePage from '../game/GamePage';
+import ResultPage from '../result/ResultPage'
 import NotFound from '../NotFound';
 
 describe('the router', () => {
@@ -55,6 +56,21 @@ describe('the router', () => {
   
     expect(wrapped.find(Header).length).toEqual(1);
     expect(wrapped.find(GamePage).length).toEqual(1);
+
+  })
+
+  it('renders the header and result page when the path is /result', () =>{
+    wrapped = mount(
+      <Root>
+      <MemoryRouter initialEntries={['/result']}
+      initialIndex={0}>
+        <App />
+      </MemoryRouter>
+      </Root>
+    );
+  
+    expect(wrapped.find(Header).length).toEqual(1);
+    expect(wrapped.find(ResultPage).length).toEqual(1);
 
   })
 
