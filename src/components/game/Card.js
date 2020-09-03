@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Card.module.css';
 import { connect } from 'react-redux';
-import * as actions from '../../actions'
+import * as actions from '../../actions';
 
 class Card extends React.Component {
   
