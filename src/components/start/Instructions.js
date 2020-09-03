@@ -4,7 +4,7 @@ const Instructions = () => {
   return (
     <div>
       {/*Illustration of lab notebook*/}
-      <p>Instructions</p>
+      <p style={{fontWeight: 'bold'}}>Instructions</p>
       <InstructionsText />
     </div>
   )

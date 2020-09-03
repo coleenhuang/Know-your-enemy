@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class GamePage extends React.Component {
   render (){
-    if (this.props.matched.length === 6) {
+    if (this.props.matched.length === 8) {
       //Redirects to the result page when done
       return <Redirect to='/result' />
     }

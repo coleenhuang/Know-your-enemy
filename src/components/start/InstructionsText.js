@@ -8,7 +8,7 @@ const InstructionsText = () => {
       </p>
       <p>Your goal is to match each fact with the right pathogen. When the two are matched correctly they are removed from the board. </p>
       <p>
-        Have fun, but don't take too long! You're being timed!
+        Have fun!
       </p>
     </div>
   )

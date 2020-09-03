@@ -6,10 +6,7 @@ const StartPage = () => {
   return (
     <div>
       <Instructions />
-      <div>
-        {/*Illustration of microscope*/}
-        <p>Get to know your enemies</p>
-      </div>
+      
       <PlayButton />
     </div>
   )

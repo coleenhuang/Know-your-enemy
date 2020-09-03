@@ -20,7 +20,7 @@ afterEach(() => {
 })
 
 it('has one card per element', () => {
-    expect(wrapped.find(Card)).toHaveLength(6)
+    expect(wrapped.find(Card)).toHaveLength(8)
 })
 
 it('shuffles the cardList array', () => {

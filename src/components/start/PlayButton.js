@@ -6,7 +6,7 @@ const PlayButton = () => {
     <Link to='game'>
     <div>
       {/*Illustration of petri dish*/}
-      <p>Play</p>
+      <p style={{fontWeight: 'bold'}}>Play</p>
     </div>
     </Link>
   )

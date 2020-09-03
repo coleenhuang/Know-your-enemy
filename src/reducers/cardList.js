@@ -34,5 +34,15 @@ export default () =>  [
         back: "Spread by mice",
         type: 3,
         
+    },
+    {
+        id: 7,
+        back:'Chikungunya virus',
+        type: 4
+    },
+    {
+        id: 8,
+        back: 'Causes arthitis like symptoms',
+        type: 4
     }
 ]
