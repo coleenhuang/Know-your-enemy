@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import selectedCards from './selectedCards';
-import cardList from './cardList';
 import matchedCards from './matchedCards';
+import fetchCards from './fetchCards';
 
 
 export default combineReducers({
-    cardList: cardList,
+    cards: fetchCards,
     selected: selectedCards,
     matched: matchedCards
 })

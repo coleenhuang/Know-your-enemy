@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from "../../actions";
 
-const PlayButton = () => {
+const PlayButton = (props) => {
   return (
     <Link to='game'>
-    <div>
+    <div onClick={props.fetchCards}>
       {/*Illustration of petri dish*/}
-      <p style={{fontWeight: 'bold'}}>Play</p>
+      <p className="fetch-cards" style={{fontWeight: 'bold'}}>Play</p>
     </div>
     </Link>
   )
 }
 
-export default PlayButton;
+export default connect(null, actions)(PlayButton);

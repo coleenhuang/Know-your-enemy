@@ -91,13 +91,13 @@ class CardsContainer extends React.Component {
     )}
 }
 
-const mapStateToprops = (state) => {
+const mapStateToProps = (state) => {
     return {
-        cardList: state.cardList,
+        cardList: state.cards,
         first: state.selected.first,
         second: state.selected.second,
         matched: state.matched
     };
 }
 
-export default connect(mapStateToprops, actions)(CardsContainer);
+export default connect(mapStateToProps, actions)(CardsContainer);
